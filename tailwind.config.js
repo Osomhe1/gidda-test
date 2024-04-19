@@ -21,7 +21,7 @@ export default {
       themes: {
         light: {
           colors: {
-            secondary: '#FF6DFB',
+            secondary: '#335f32',
           },
         },
         dark: {

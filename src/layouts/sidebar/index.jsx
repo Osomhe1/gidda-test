@@ -5,19 +5,18 @@ import SubMenu from './SubMenu'
 import { motion } from 'framer-motion'
 import { defaultMenu } from './routes'
 
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { dashboardContext } from '../../context/Dashboard'
 // import { PiArrowsLeftRightBold } from "react-icons/pi";
+import { HiLogout } from 'react-icons/hi'
 
 import SubMenuSidebar from '../submenuSidebar'
-// import UserDropDownSidebar from "../components/UserDropDownSidebar";
-// import { Search } from 'lucide-react'
 
-// import { useNavigate } from 'react-router-dom'
 import Logo from '../../components/Logo'
+import useAccessToken from '../../hooks/useAccessToken'
+import useCurrentUser from '../../hooks/useCurrentUser'
 
 const Sidebar = () => {
-  // const navigate = useNavigate()
   const {
     sidebarOpen,
     setSidebarOpen,
@@ -26,12 +25,9 @@ const Sidebar = () => {
     // minimizeSidebar, // removed for now
     // setShowminimizedsubMenu,
   } = useContext(dashboardContext)
-
+  const navigate = useNavigate()
   const sidebarRef = useRef()
   const { pathname } = useLocation()
-  // console.log(pathname)
-  // //the condition side menu is here
-  // const sideMenu = pathname.includes("payroll") ? payrollMenu : pathname.includes("hr") ? hrMenu : defaultMenu;
   const sideMenu = defaultMenu
 
   useEffect(() => {
@@ -46,6 +42,8 @@ const Sidebar = () => {
     setSidebarOpen(false)
     // setShowminimizedsubMenu(false);
   }
+  const { removeAccessToken } = useAccessToken()
+  const { removeCurrentUser } = useCurrentUser()
 
   useEffect(() => {
     isTablet && setSidebarOpen(false)
@@ -97,13 +95,15 @@ const Sidebar = () => {
           },
         },
       }
-
-  // const routeToHome = () => {
-  //   navigate("/engage/posts");
-  // };
+  const handleLogout = () => {
+    localStorage.removeItem('token')
+    removeAccessToken()
+    removeCurrentUser()
+    navigate('/')
+  }
 
   return (
-    <div className="relative   shadowsidebar font-['Campton']">
+    <div className="relative font-['Campton']">
       <div
         onClick={() => overlayClicked()}
         className={`lg:hidden fixed inset-0 max-h-screen z-40 cursor-pointer   ${
@@ -125,8 +125,8 @@ const Sidebar = () => {
             : 'closed'
         }
         className='shadow-sm border-r dark:border-0 min-h-full group text-black lg:z-[49] z-[91] max-w-[17rem] w-[17rem] 
-             fixed top-0 left-0
-           h-screen  dark:!text-gray-100 bg-lighten dark:bg-neutral-900  '
+             fixed top-0 left-0 bg-gray-100
+           h-screen  '
       >
         {/* top bar */}
 
@@ -145,7 +145,6 @@ const Sidebar = () => {
                   className={`mr-8 py-2  pt-4 cursor-pointer  ${
                     sidebarMinimized ? 'hidden' : 'block'
                   }`}
-                  // onClick={routeToHome}
                 >
                   <Logo />
                 </div>
@@ -191,7 +190,7 @@ const Sidebar = () => {
                           to={route.route}
                           className={`group/navitem ${
                             sidebarMinimized
-                              ? 'flex flex-col text-center justify-center hover:no-underline gap-1 cursor-pointer duration-300 font-medium text-gray-400'
+                              ? 'flex flex-col text-center uppercase justify-center hover:no-underline gap-1 cursor-pointer duration-300 font-medium text-gray-400'
                               : ' p-3 link flex gap-2'
                           }`}
                         >
@@ -202,7 +201,7 @@ const Sidebar = () => {
                             }
     ${
       pathname === route.route?.toLocaleLowerCase()
-        ? 'text-fuchsia-400'
+        ? 'text-[#335f32]'
         : 'text-menuItemIcon'
     }`}
                           />
@@ -210,7 +209,7 @@ const Sidebar = () => {
                             className={`
     ${
       pathname === route.route?.toLocaleLowerCase()
-        ? 'text-fuchsia-400'
+        ? 'text-[#335f32]'
         : 'text-menuItemIcon'
     }`}
                           >
@@ -224,6 +223,17 @@ const Sidebar = () => {
               </Fragment>
             ))}
           </ul>
+
+          <div className='flex flex-col  gap-4 justify-center p-1 px-3 mb-16 items-center'>
+            <div
+              className={`py-2 uppercase flex gap-2 items-center w-full pl-8 text-red-500 text-tiny border-t cursor-pointer `}
+              onClick={handleLogout}
+            >
+              <p className='text-[10px] font-bold'>Log out</p>
+
+              <HiLogout className='text-red-500' />
+            </div>
+          </div>
         </div>
       </motion.div>
     </div>

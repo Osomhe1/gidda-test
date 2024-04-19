@@ -33,7 +33,7 @@ function RootLayout() {
               : !sidebarMinimized && !sidebarOpen && 'lg:ml-0'
           }`}
         >
-          <Navbar onNotificationClick={toggleRightSidebar} />
+          {/* <Navbar onNotificationClick={toggleRightSidebar} /> */}
 
           <main
             className={`py-4 flex-1 z-1 mx-auto w-full overflow-clip
@@ -48,22 +48,6 @@ function RootLayout() {
             <Outlet />
           </main>
         </motion.div>
-        <AnimatePresence mode='wait'>
-          {showRightSidebar && (
-            <motion.div
-              transition={{
-                rotate: { duration: 2 },
-                scale: { duration: 0.4 },
-              }}
-              initial={{ x: 100 }}
-              animate={{ x: 0 }}
-            >
-              <RightSidebar
-                onNotificationClick={() => setShowRightSidebar(false)}
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
     </div>
   )

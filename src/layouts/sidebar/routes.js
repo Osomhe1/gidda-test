@@ -1,21 +1,14 @@
-import { BiBarChart } from 'react-icons/bi'
-export const defaultMenu = [
-  // {
-  //   title: '',
-  //   name: 'Home',
-  //   route: '/dashboard',
-  //   // icon: HomeIcon,
-  //   icon: RiHome2Line,
-  //   withSubMenu: false,
-  // },
+// import { BiBarChart } from 'react-icons/bi'
+import { ImCoinDollar } from 'react-icons/im'
 
+export const defaultMenu = [
   {
     title: '',
-    name: 'Transactions',
+    name: 'Transactions & Earnings',
     // routeMerge: true,
     // icon: TransIcon,
-    icon: BiBarChart,
+    icon: ImCoinDollar,
     withSubMenu: false,
-    route: '/dashboard/transactions',
+    route: '/dashboard',
   },
 ]

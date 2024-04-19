@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 import { Navigate } from 'react-router-dom'
-import { useGetProfile } from '../api/profileApis'
+import { useGetSummery } from '../api/profileApis'
 import LoadingState from '../components/auth/LoadingState'
 import toast from 'react-hot-toast'
 
 const ProtectedRoute = ({ children }) => {
-  const { data: profileDeatils, isPending, error } = useGetProfile()
+  const { data: getSummery, isPending, error } = useGetSummery()
 
-  if (profileDeatils) {
+  if (getSummery) {
     return children
   }
   if (error?.response?.status === '401') {

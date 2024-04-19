@@ -11,12 +11,13 @@ export const useUserProfile = () => {
   })
 }
 
-export const useGetProfile = () => {
+export const useGetSummery = () => {
   return useQuery({
-    queryKey: ['get_profile'],
+    queryKey: ['get-summary'],
     queryFn: async () => {
-      const res = await API.get(`/profile`)
-      return res?.data?.user_profile
+      const res = await API.get(`/get-summary`)
+      console.log(res?.data?.value, 'reddd')
+      return res?.data?.value
     },
   })
 }

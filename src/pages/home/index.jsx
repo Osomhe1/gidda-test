@@ -14,7 +14,7 @@ import SelectPaymentmodal from '../transaction/components/SelectPaymentmodal'
 import { useDisclosure } from '@nextui-org/react'
 import { useNavigate } from 'react-router-dom'
 import { useFetchBallance } from '../../api/walletApi'
-import { useGetProfile } from '../../api/profileApis'
+import { useGetSummery } from '../../api/profileApis'
 
 export default function Welcome({ onNotificationClick }) {
   const [profile, setProfile] = useState(true)
@@ -23,7 +23,7 @@ export default function Welcome({ onNotificationClick }) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const navigate = useNavigate()
   const { data: showBalance } = useFetchBallance()
-  const { data: userDetails } = useGetProfile()
+  const { data: userDetails } = useGetSummery()
 
   return (
     <div>

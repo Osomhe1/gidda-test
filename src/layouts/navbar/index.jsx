@@ -4,7 +4,7 @@ import { useContext, useEffect } from 'react'
 import { MdMenu } from 'react-icons/md'
 import { dashboardContext } from '../../context/Dashboard'
 
-import UserDropdown from '../components/UserDropdown'
+// import UserDropdown from '../components/UserDropdown'
 import { Search } from 'lucide-react'
 import { useDarkMode } from 'usehooks-ts'
 import SignOutModal from '../../components/auth/SignOutModal'
@@ -66,9 +66,6 @@ const Navbar = ({ onNotificationClick }) => {
                       {' '}
                       <Search className=' text-gray-400' size={20} />
                     </button>
-                  </div>
-                  <div className='hidden lg:flex'>
-                    <UserDropdown />
                   </div>
                 </div>
               </div>
@@ -163,9 +160,6 @@ const Navbar = ({ onNotificationClick }) => {
                   {' '}
                   <Search className=' text-gray-400' size={20} />
                 </button>
-              </div>
-              <div className=''>
-                <UserDropdown />
               </div>
             </div>
           </div>

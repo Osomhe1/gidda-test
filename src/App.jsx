@@ -6,8 +6,6 @@ import ConfirmOtp from './components/auth/ConfirmOtp'
 import Signup from './components/auth/Signup'
 import OnBoard from './components/auth/OnBoard'
 import RootLayout from './layouts/RootLayout'
-import VerifyEmail from './components/auth/VerifyEmail'
-import Welcome from './pages/home'
 import Transactions from './pages/transaction/Transactions'
 import PageNotFound from './pages/PageNotFound'
 // import Settings from './pages/setting/Settings'
@@ -20,12 +18,14 @@ import ResetPassword from './components/auth/ResetPassword'
 import Payment from './pages/payment/Payment'
 import ToastProvider from './providers/ToastProvider'
 import FundWallet from './pages/home/FundWallet'
+import FloatingChip from './pages/Float'
 
 function App() {
   return (
     <>
       <Animation>
         <ToastProvider />
+        <FloatingChip />
         <Routes>
           <Route path='/' element={<Login />} />
           {/* <Route path='/' element={<VerifyEmail />} /> */}

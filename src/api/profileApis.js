@@ -16,8 +16,18 @@ export const useGetSummery = () => {
     queryKey: ['get-summary'],
     queryFn: async () => {
       const res = await API.get(`/get-summary`)
-      console.log(res?.data?.value, 'reddd')
       return res?.data?.value
+    },
+  })
+}
+
+export const useGetSuccessFulTransaction = () => {
+  return useQuery({
+    queryKey: ['get-succesful-payments'],
+    queryFn: async () => {
+      const res = await API.get(`/get-succesful-payments`)
+      console.log(res?.data?.value?.data, 'resss')
+      return res?.data?.value?.data
     },
   })
 }

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import OverViewCard from './OverViewCard'
 import EarnViewCard from './EarnViewCard'
 import OrdersViewCard from './OrdersViewCard'
+import SuccessfulTransaction from './SuccessfulTransaction'
 
 export default function Transactions() {
   const [selected, setSelected] = useState('summary')
@@ -109,7 +110,7 @@ export default function Transactions() {
                   scale: { duration: 0.4 },
                 }}
               >
-                <OrdersViewCard />
+                <SuccessfulTransaction />
               </motion.div>
             )}
           </div>

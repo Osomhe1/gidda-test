@@ -117,6 +117,55 @@ export default function Partners() {
               </div>
             </div>
           </div>
+
+          <div id='interviews' className='bg-[#F3FAF2] px-24 pb-40 pt-16'>
+            <div className='flex space-x-16'>
+              <div className='w-[300px] mt-12 px-12 rounded-[3.5rem] h-[350px]'>
+                <span aria-live='polite' aria-busy='true'>
+                  <span
+                    className='react-loading-skeleton rounded-[3.5rem]'
+                    // className='border-radius: 3.5rem; width: 300px; height: 350px;'
+                  >
+                    ‌
+                  </span>
+                  <br />
+                </span>
+              </div>
+              <div className='w-[300px] mt-12 px-12 rounded-[3.5rem] h-[350px]'>
+                <span aria-live='polite' aria-busy='true'>
+                  <span
+                    className='react-loading-skeleton rounded-[3.5rem]'
+                    // className='border-radius: 3.5rem; width: 300px; height: 350px;'
+                  >
+                    ‌
+                  </span>
+                  <br />
+                </span>
+              </div>
+              <div className='w-[300px] mt-12 px-12 rounded-[3.5rem] h-[350px]'>
+                <span aria-live='polite' aria-busy='true'>
+                  <span
+                    className='react-loading-skeleton rounded-[3.5rem]'
+                    // className='border-radius: 3.5rem; width: 300px; height: 350px;'
+                  >
+                    ‌
+                  </span>
+                  <br />
+                </span>
+              </div>
+              <div className='w-[300px] mt-12 px-12 rounded-[3.5rem] h-[350px]'>
+                <span aria-live='polite' aria-busy='true'>
+                  <span
+                    className='react-loading-skeleton rounded-[3.5rem]'
+                    // className='border-radius: 3.5rem; width: 300px; height: 350px;'
+                  >
+                    ‌
+                  </span>
+                  <br />
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

@@ -3,8 +3,7 @@ import { PiWarningCircle } from 'react-icons/pi'
 
 const Card = ({ title, text }) => {
   return (
-    <div className='max-wsm wfull w-64 rounded-md overflow-hidden shadow-lg relative p-4 bg-white'>
-      {/* <div className='absolute top-2 right-2 text-gray-500 text-xl'>{Icon}</div> */}
+    <div className='wsm w-full w60 rounded-md overflow-hidden shadow-md relative p-4 bg-white'>
       <div className=' flex justify-end text-black text-xl'>
         <PiWarningCircle />
       </div>

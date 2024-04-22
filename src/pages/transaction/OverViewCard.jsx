@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useGetSummery } from '../../api/profileApis'
+import { useGetSummery } from '../../api/transactionApi'
 import Card from './components/Card'
 
 export default function OverViewCard() {
@@ -17,10 +17,10 @@ export default function OverViewCard() {
 
   return (
     <div>
-      <div className='self-stretch  p-6 flex-col justify-center items-start gap-6 flex'>
-        <div className=''>
+      <div className='self-stretch p-6 flex-col justify-center items-start gap-6 flex'>
+        <div className=' w-full'>
           <div className='capitalize'>earning breakdown</div>
-          <div className='flex flex-wrap gap-4'>
+          <div className='grid w-full md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
             <Card
               title={
                 <EarningsDisplay earnings={showSummary?.expectedEarnings} />
@@ -43,9 +43,9 @@ export default function OverViewCard() {
             />
           </div>
         </div>
-        <div className=''>
+        <div className='w-full'>
           <div className='capitalize'>Frequency breakdown</div>
-          <div className='flex flex-wrap gap-4'>
+          <div className='grid w-full md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
             <Card
               title={showSummary?.expectedNumberOfTransactions}
               text='expected Number Of Transactions'
@@ -64,9 +64,9 @@ export default function OverViewCard() {
             />
           </div>
         </div>
-        <div className=''>
+        <div className='w-full'>
           <div className='capitalize'>default breakdown</div>
-          <div className='flex flex-wrap gap-4'>
+          <div className='grid w-full md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
             <Card
               title={showSummary?.totalMissedTransactions}
               text='missed payment'

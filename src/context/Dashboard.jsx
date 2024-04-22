@@ -8,15 +8,11 @@ export const dashboardContext = createContext()
 
 const DashboardContext = ({ children }) => {
   let isTablet = useMediaQuery({ query: '(max-width: 1024px)' })
-  // let isTablet = useMediaQuery({ query: "(max-width: 768px)" });
   const [sidebarOpen, setSidebarOpen] = useState(isTablet ? false : true)
   const [tabClicked, setTabClicked] = useState('home')
   const [sidebarMinimized, setSidebarMinimized] = useState(false)
   const [showminimizedsubMenu, setShowminimizedsubMenu] = useState(false)
   const [extendedSubMenuData, setExtendedSubMenuData] = useState(null)
-
-  //
-  const [tabClickedLV3, setTabClickedLV3] = useState('engage')
 
   const toggleSideBar = () => {
     setSidebarOpen(true)
@@ -28,15 +24,6 @@ const DashboardContext = ({ children }) => {
       setTabClicked(null)
     } else {
       setTabClicked(name)
-    }
-  }
-
-  const toggleTabLV3 = (name) => {
-    console.log(name)
-    if (tabClickedLV3 === name) {
-      setTabClickedLV3(null)
-    } else {
-      setTabClickedLV3(name)
     }
   }
 
@@ -57,8 +44,6 @@ const DashboardContext = ({ children }) => {
         isTablet,
         tabClicked,
         toggleTab,
-        toggleTabLV3,
-        tabClickedLV3,
         sidebarMinimized,
         minimizeSidebar,
         showminimizedsubMenu,

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import {
@@ -15,29 +16,30 @@ import {
   Pagination,
 } from '@nextui-org/react'
 import { columns, statusOptions } from './data'
-import { useGetSuccessFulTransaction } from '../../../api/transactionApi'
-import { format } from 'date-fns'
+import { useGetDefaultTransaction } from '../../../api/transactionApi'
+import { differenceInDays, format } from 'date-fns'
+import { TbMoneybag } from 'react-icons/tb'
+import { MdAccessAlarm } from 'react-icons/md'
 
 const INITIAL_VISIBLE_COLUMNS = [
   'id',
   'customer',
+  'amount',
   'type',
-  'giddaa',
-  'your earnings',
-  'total paid',
   'property',
   'plan',
-  'payment date',
+  'due date',
+  'days overdue',
   'actions',
 ]
 
-export default function SuccessTable() {
+export default function DefaultTable() {
   const [filterValue, setFilterValue] = React.useState('')
   const [selectedKeys, setSelectedKeys] = React.useState(new Set([]))
   const [visibleColumns, setVisibleColumns] = React.useState(
     new Set(INITIAL_VISIBLE_COLUMNS)
   )
-  const { data: showSummary } = useGetSuccessFulTransaction()
+  const { data: showSummary } = useGetDefaultTransaction()
 
   const [statusFilter, setStatusFilter] = React.useState('all')
   const [rowsPerPage, setRowsPerPage] = React.useState(5)
@@ -116,7 +118,8 @@ export default function SuccessTable() {
       <div className='flex flex-col gap-4'>
         <div className='flex justify-between items-center'>
           <span className='text-default-400 text-[12px]'>
-            Successfull transactions made by customer in your organization
+            Date on payments that should have been made but weren't and the
+            customer who have paid
           </span>
           <span className='text-default-400 capitalize text-[12px]'>
             show all fields
@@ -155,19 +158,16 @@ export default function SuccessTable() {
 
   const classNames = React.useMemo(
     () => ({
-      wrapper: ['max-h-[382px]', 'border-2', 'max-w-lg'],
+      wrapper: ['max-h-[382px]', 'overflow-auto ', 'border-2', 'max-w-lg'],
       tr: ' border ',
       th: [
         'bg-transparent rounded-none bg-stone-200',
         'text-black text-[10px]',
+        'border-divider',
         'last:rounded-none',
         'first:rounded-none',
-        'border-divider',
       ],
       td: [
-        // changing the rows border radius
-        // first
-        'group-data-[first=true]:first:before:rounded-none',
         'group-data-[first=true]:last:before:rounded-none',
         // middle
         'group-data-[middle=true]:before:rounded-none',
@@ -182,6 +182,7 @@ export default function SuccessTable() {
   return (
     <div className='mt-10 overflow-x-auto'>
       <Table
+        isCompact
         removeWrapper
         aria-label='Example table with custom cells, pagination and sorting'
         bottomContent={showSummary?.length >= 5 ? bottomContent : null}
@@ -200,7 +201,7 @@ export default function SuccessTable() {
         onSelectionChange={setSelectedKeys}
         onSortChange={setSortDescriptor}
       >
-        <TableHeader columns={headerColumns}>
+        <TableHeader>
           {headerColumns.map((column) => (
             <TableColumn
               key={column.uid}
@@ -211,30 +212,17 @@ export default function SuccessTable() {
             </TableColumn>
           ))}
         </TableHeader>
-        <TableBody emptyContent={'No transaction found'} items={sortedItems}>
+        <TableBody emptyContent={'No transaction found'}>
           {sortedItems?.map((item) => (
             <TableRow key={item.rrr}>
               <TableCell>{item.rrr?.slice(0, 4)}</TableCell>
               <TableCell>
                 {item.customer?.firstName} {''} {item.customer?.lastName}
               </TableCell>
-              <TableCell>
-                <div> N{item.amount.toLocaleString()}</div>
-                <small className='text-green-700 text-[8px]'>(100%) </small>
+              <TableCell>N{item.amount.toLocaleString()}</TableCell>
+              <TableCell className='capitalize'>
+                {item.transactionType}
               </TableCell>
-              <TableCell>
-                <div> N{item.organizationAmount.toLocaleString()}</div>
-                <small className='text-green-700 text-[8px]'>
-                  ({(item.organizationAmount / item.amount) * 100}%)
-                </small>
-              </TableCell>
-              <TableCell>
-                <div> N{item.giddaaAmount.toLocaleString()}</div>
-                <small className='text-green-700 text-[8px]'>
-                  ({(item.giddaaAmount / item.amount) * 100}%)
-                </small>
-              </TableCell>
-              <TableCell>{item.type}</TableCell>
               <TableCell>
                 {item.house?.address}
                 {''}
@@ -242,8 +230,10 @@ export default function SuccessTable() {
                 {','} {item.house?.stateName}
               </TableCell>
               <TableCell>{item.mortgagePlan?.name}</TableCell>
+
+              <TableCell>{format(item?.dueDate, 'do MMMM yyyy')}</TableCell>
               <TableCell>
-                {format(item?.dateOfPayment, 'do MMMM yyyy')}
+                {differenceInDays(new Date(), new Date(item.dueDate))} days
               </TableCell>
               <TableCell>
                 <Dropdown className='bg-background border-1 border-default-200'>
@@ -267,8 +257,18 @@ export default function SuccessTable() {
                     </Button>
                   </DropdownTrigger>
                   <DropdownMenu>
-                    <DropdownItem>View Recipt</DropdownItem>
-                    <DropdownItem>Download Recipt</DropdownItem>
+                    <DropdownItem>
+                      <div className='flex gap-1 items-center'>
+                        <MdAccessAlarm />
+                        <div>Remind Customer</div>
+                      </div>
+                    </DropdownItem>
+                    <DropdownItem>
+                      <div className='flex gap-1 items-center'>
+                        <TbMoneybag />
+                        <div>View Repayment Schedule</div>
+                      </div>
+                    </DropdownItem>
                   </DropdownMenu>
                 </Dropdown>
               </TableCell>

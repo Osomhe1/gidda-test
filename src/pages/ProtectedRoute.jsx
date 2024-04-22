@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Navigate } from 'react-router-dom'
-import { useGetSummery } from '../api/profileApis'
+import { useGetSummery } from '../api/transactionApi'
 import LoadingState from '../components/auth/LoadingState'
 import toast from 'react-hot-toast'
 

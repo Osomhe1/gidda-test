@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Fragment, useContext, useEffect } from 'react'
 import { useRef } from 'react'
@@ -7,24 +8,14 @@ import { defaultMenu } from './routes'
 
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { dashboardContext } from '../../context/Dashboard'
-// import { PiArrowsLeftRightBold } from "react-icons/pi";
 import { HiLogout } from 'react-icons/hi'
-
-import SubMenuSidebar from '../submenuSidebar'
-
 import Logo from '../../components/Logo'
 import useAccessToken from '../../hooks/useAccessToken'
 import useCurrentUser from '../../hooks/useCurrentUser'
 
-const Sidebar = () => {
-  const {
-    sidebarOpen,
-    setSidebarOpen,
-    isTablet,
-    sidebarMinimized,
-    // minimizeSidebar, // removed for now
-    // setShowminimizedsubMenu,
-  } = useContext(dashboardContext)
+const Sidebar = ({ show }) => {
+  const { sidebarOpen, setSidebarOpen, isTablet, sidebarMinimized } =
+    useContext(dashboardContext)
   const navigate = useNavigate()
   const sidebarRef = useRef()
   const { pathname } = useLocation()
@@ -40,7 +31,6 @@ const Sidebar = () => {
 
   const overlayClicked = () => {
     setSidebarOpen(false)
-    // setShowminimizedsubMenu(false);
   }
   const { removeAccessToken } = useAccessToken()
   const { removeCurrentUser } = useCurrentUser()
@@ -103,30 +93,22 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="relative font-['Campton']">
+    <div className={`relative font-['Campton'] ${show ? 'block' : 'hidden'} `}>
       <div
         onClick={() => overlayClicked()}
-        className={`lg:hidden fixed inset-0 max-h-screen z-40 cursor-pointer   ${
+        className={`lg:hidden fixed inset-0 max-h-screen z-20 cursor-pointer   ${
           sidebarOpen ? 'block' : 'hidden'
         } `}
       ></div>
 
-      <SubMenuSidebar />
-
       <motion.div
         ref={sidebarRef}
         variants={Nav_animation}
-        initial={{ x: isTablet ? -350 : 0 }}
-        animate={
-          sidebarMinimized && sidebarOpen
-            ? 'minimize'
-            : !sidebarMinimized && sidebarOpen
-            ? 'open'
-            : 'closed'
-        }
-        className='shadow-sm border-r dark:border-0 min-h-full group text-black lg:z-[49] z-[91] max-w-[17rem] w-[17rem] 
+        className={`${
+          show ? 'block' : 'hidden'
+        } shadow-sm border-r dark:border-0 min-h-full group text-black lg:z-[49] z-[91] w-[15rem] 
              fixed top-0 left-0 bg-gray-100
-           h-screen  '
+           h-screen  `}
       >
         {/* top bar */}
 

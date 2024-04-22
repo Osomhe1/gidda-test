@@ -15,29 +15,29 @@ import {
   Pagination,
 } from '@nextui-org/react'
 import { columns, statusOptions } from './data'
-import { useGetSuccessFulTransaction } from '../../../api/transactionApi'
-import { format } from 'date-fns'
+import { useGetExpectedTransaction } from '../../../api/transactionApi'
+import { TbMoneybag } from 'react-icons/tb'
+import { differenceInDays } from 'date-fns'
 
 const INITIAL_VISIBLE_COLUMNS = [
   'id',
   'customer',
-  'type',
-  'giddaa',
-  'your earnings',
+  'total due',
   'total paid',
+  'balance',
   'property',
-  'plan',
-  'payment date',
+  'next payment',
+  'payment tracker',
   'actions',
 ]
 
-export default function SuccessTable() {
+export default function ExpectedTable() {
   const [filterValue, setFilterValue] = React.useState('')
   const [selectedKeys, setSelectedKeys] = React.useState(new Set([]))
   const [visibleColumns, setVisibleColumns] = React.useState(
     new Set(INITIAL_VISIBLE_COLUMNS)
   )
-  const { data: showSummary } = useGetSuccessFulTransaction()
+  const { data: showSummary } = useGetExpectedTransaction()
 
   const [statusFilter, setStatusFilter] = React.useState('all')
   const [rowsPerPage, setRowsPerPage] = React.useState(5)
@@ -115,8 +115,10 @@ export default function SuccessTable() {
     return (
       <div className='flex flex-col gap-4'>
         <div className='flex justify-between items-center'>
-          <span className='text-default-400 text-[12px]'>
-            Successfull transactions made by customer in your organization
+          <span className='text-default-400 max-w-xl text-[12px]'>
+            Expected transactions involve payment awaiting due date, anticipated
+            to be fulfilled by customers, and primarily representing future
+            repayment
           </span>
           <span className='text-default-400 capitalize text-[12px]'>
             show all fields
@@ -160,9 +162,10 @@ export default function SuccessTable() {
       th: [
         'bg-transparent rounded-none bg-stone-200',
         'text-black text-[10px]',
+
+        'border-divider',
         'last:rounded-none',
         'first:rounded-none',
-        'border-divider',
       ],
       td: [
         // changing the rows border radius
@@ -218,33 +221,20 @@ export default function SuccessTable() {
               <TableCell>
                 {item.customer?.firstName} {''} {item.customer?.lastName}
               </TableCell>
-              <TableCell>
-                <div> N{item.amount.toLocaleString()}</div>
-                <small className='text-green-700 text-[8px]'>(100%) </small>
-              </TableCell>
-              <TableCell>
-                <div> N{item.organizationAmount.toLocaleString()}</div>
-                <small className='text-green-700 text-[8px]'>
-                  ({(item.organizationAmount / item.amount) * 100}%)
-                </small>
-              </TableCell>
-              <TableCell>
-                <div> N{item.giddaaAmount.toLocaleString()}</div>
-                <small className='text-green-700 text-[8px]'>
-                  ({(item.giddaaAmount / item.amount) * 100}%)
-                </small>
-              </TableCell>
-              <TableCell>{item.type}</TableCell>
+              <TableCell>N{item.amount.toLocaleString()}</TableCell>
+              <TableCell>N{item.organizationAmount.toLocaleString()}</TableCell>
+              <TableCell>N{item.giddaaAmount.toLocaleString()}</TableCell>
               <TableCell>
                 {item.house?.address}
                 {''}
                 {item.house?.cityName}
                 {','} {item.house?.stateName}
               </TableCell>
-              <TableCell>{item.mortgagePlan?.name}</TableCell>
+              <TableCell>{item.type}</TableCell>
               <TableCell>
-                {format(item?.dateOfPayment, 'do MMMM yyyy')}
+                {differenceInDays(new Date(item.dueDate), new Date())} days
               </TableCell>
+
               <TableCell>
                 <Dropdown className='bg-background border-1 border-default-200'>
                   <DropdownTrigger>
@@ -267,8 +257,12 @@ export default function SuccessTable() {
                     </Button>
                   </DropdownTrigger>
                   <DropdownMenu>
-                    <DropdownItem>View Recipt</DropdownItem>
-                    <DropdownItem>Download Recipt</DropdownItem>
+                    <DropdownItem>
+                      <div className='flex gap-1 items-center'>
+                        <TbMoneybag />
+                        <div>View Repayment Schedule</div>
+                      </div>
+                    </DropdownItem>
                   </DropdownMenu>
                 </Dropdown>
               </TableCell>

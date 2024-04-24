@@ -45,14 +45,14 @@ export default function Hero() {
           />
         </div>
       </section>
-      <div
+      {/* <div
         id='ourProperties'
         className='grid uppercase md:grid-cols-3 bg-[#F3FAF2] p-5 px-44 py-4 pl-[36px]'
       >
         <div className='flex flex-col items-center pr-[20%]'>
           <h1 className='font-title text-primary text-6xl'>
             <span aria-live='polite' aria-busy='true'>
-              <span className='react-loading-skeleton'>‌</span>
+              <span className='react-loading-skeleton'>‌6</span>
               <br />
             </span>
           </h1>
@@ -61,7 +61,7 @@ export default function Hero() {
         <div className='flex flex-col items-center'>
           <h1 className='font-title text-primary text-6xl'>
             <span aria-live='polite' aria-busy='true'>
-              <span className='react-loading-skeleton'>‌</span>
+              <span className='react-loading-skeleton'>‌100</span>
               <br />
             </span>
           </h1>
@@ -70,7 +70,7 @@ export default function Hero() {
         <div className='flex flex-col items-center pl-[10%]'>
           <h1 className='font-title text-primary text-6xl'>
             <span aria-live='polite' aria-busy='true'>
-              <span className='react-loading-skeleton'>‌</span>
+              <span className='react-loading-skeleton'>‌9</span>
               <br />
             </span>
           </h1>
@@ -78,7 +78,7 @@ export default function Hero() {
             PLANS/METHODS YOU CAN PURCHASE YOUR HOME
           </p>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

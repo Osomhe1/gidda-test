@@ -32,7 +32,6 @@ function App() {
               path=''
               element={
                 <ProtectedRoute>
-                  {/* <Welcome /> */}
                   <Transactions />
                 </ProtectedRoute>
               }

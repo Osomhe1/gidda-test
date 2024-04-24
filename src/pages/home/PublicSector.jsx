@@ -10,7 +10,7 @@ export default function PublicSector() {
     <div>
       <div
         id='publicSector'
-        className='bg-[#F3FAF2] px-10 md:px-8 grid grid-cols-1 md:grid-cols-2'
+        className='bg-[#F3FAF2] px-10 md:px-10 grid grid-cols-1 md:grid-cols-2'
       >
         <div className=''>
           <div className='w-20 h-20 bg-white rounded-full flex justify-center items-center'>
@@ -20,7 +20,7 @@ export default function PublicSector() {
               className='w-16 h-16'
             />
           </div>
-          <div className='w-[500px] flex flex-col items-start my-4 justify-start'>
+          <div className=' flex flex-col items-start my-4 justify-start'>
             <h3 className='text-[40px] lg:text-[50px] font-extrabold text-primary capitalize'>
               Public Sector Workers
             </h3>

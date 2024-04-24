@@ -2,9 +2,8 @@ export default function Footers() {
   return (
     <div>
       <footer className='w-full position-absolute bottom-0'>
-        <div className='bg-gray-200 py-2 w-full'></div>
         <div className='flex flex-col bg-[#335f32] w-full justify-center items-center text-xl font-light text-[#d8d8d8] font-nav-bar'>
-          <div className='w-[450px] cursor-pointer flex flex-col justify-center items-center space-y-2 py-4 rounded-[5.5rem] bg-[#F3FAF2] mt-4'>
+          <div className='w-80 md:w-[450px] cursor-pointer flex flex-col justify-center items-center space-y-2 py-2 md:py-4 rounded-[5.5rem] bg-[#F3FAF2] mt-4'>
             <img
               src='https://giddaa.com/assets/icons/whatsapp-community.png'
               alt='whatsapp-community'
@@ -14,19 +13,19 @@ export default function Footers() {
               <img
                 src='https://giddaa.com/assets/icons/whatsapp.svg'
                 alt=''
-                className='w-10 h-10'
+                className='w-6 md:w-10 md:h-10'
               />
-              <p className='font-extrabold text-base text-[#0A7E32]'>
+              <p className='font-bold text-[10px] md:text-base text-[#0A7E32]'>
                 Join Our WhatsApp Community
               </p>
               <img
                 src='https://giddaa.com/assets/icons/arrow.svg'
                 alt=''
-                className='w-6 h-6'
+                className='w-4 md:w-6 md:h-6'
               />
             </div>
           </div>
-          <div className=' lg:flex w-[1280px] lg:pb-20 pb-10 pt-'>
+          <div className=' lg:flex xl:w-[1280px] lg:pb-20 pb-10 pt-'>
             <div
               id='developers'
               className='lg:w-3/6 lg:items-start w-6/6 mt-10 flex flex-col justify-center items-center'

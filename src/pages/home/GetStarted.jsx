@@ -3,10 +3,10 @@ export default function GetStarted() {
     <div>
       <div
         id='getStarted'
-        className='bg-[#F3FAF2] gap-y-4 py-12 flex flex-col justify-center items-center'
+        className='bg-[#F3FAF2] gap-y-4 py-12 px-6 text-center flex flex-col justify-center items-center'
       >
-        <div className='w-[520px] flex flex-col items-center justify-center'>
-          <h2 className='text-5xl font-extrabold text-primary capitalize'>
+        <div className='flex flex-col items-center justify-center'>
+          <h2 className='text-5xl font-bold text-primary capitalize'>
             Get Started
           </h2>
         </div>
@@ -18,7 +18,7 @@ export default function GetStarted() {
           long but fulfilling ride.{' '}
           <span className='text-primary font-extrabold'>Let’s Go!</span>
         </p>
-        <button className='flex bg-[#335f32] text-white w-fit cursor-pointer py-5 justify-between  rounded-full px-16 text-[12px]  h-full gap-4 justify-center items-center  '>
+        <button className='flex bg-[#335f32] text-white w-fit cursor-pointer py-5 rounded-full px-16 text-[12px] h-full gap-4 justify-center items-center'>
           Create an Account
         </button>
       </div>

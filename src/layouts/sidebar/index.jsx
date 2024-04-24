@@ -2,7 +2,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Fragment, useContext, useEffect } from 'react'
 import { useRef } from 'react'
-import SubMenu from './SubMenu'
 import { motion } from 'framer-motion'
 import { defaultMenu } from './routes'
 
@@ -147,60 +146,43 @@ const Sidebar = ({ show }) => {
                     </small>
                   )}
 
-                  {route.withSubMenu ? (
-                    <>
-                      <div className=' w-full p-0 '>
-                        {route?.submenu?.map((menu, i) => (
-                          <div key={i} className='flex flex-col gap-1'>
-                            <SubMenu
-                              data={menu}
-                              routeMerge={route?.routeMerge}
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <li
-                        className={` ${
-                          sidebarMinimized &&
-                          'border-b border-gray-800 py-0   hover:text-white '
-                        }`}
+                  <li
+                    className={` ${
+                      sidebarMinimized &&
+                      'border-b border-gray-800 py-0   hover:text-white '
+                    }`}
+                  >
+                    <NavLink
+                      to={route.route}
+                      className={`group/navitem ${
+                        sidebarMinimized
+                          ? 'flex flex-col text-center uppercase justify-center hover:no-underline gap-1 cursor-pointer duration-300 font-medium text-gray-400'
+                          : ' p-3 link flex gap-2'
+                      }`}
+                    >
+                      <route.icon
+                        size={sidebarMinimized ? 30 : 20}
+                        className={`min-w-max group-hover/navitem:text-menuItemColor ${
+                          sidebarMinimized && 'mx-auto'
+                        }
+    ${
+      pathname === route.route?.toLocaleLowerCase()
+        ? 'text-[#335f32]'
+        : 'text-menuItemIcon'
+    }`}
+                      />
+                      <span
+                        className={`
+    ${
+      pathname === route.route?.toLocaleLowerCase()
+        ? 'text-[#335f32]'
+        : 'text-menuItemIcon'
+    }`}
                       >
-                        <NavLink
-                          to={route.route}
-                          className={`group/navitem ${
-                            sidebarMinimized
-                              ? 'flex flex-col text-center uppercase justify-center hover:no-underline gap-1 cursor-pointer duration-300 font-medium text-gray-400'
-                              : ' p-3 link flex gap-2'
-                          }`}
-                        >
-                          <route.icon
-                            size={sidebarMinimized ? 30 : 20}
-                            className={`min-w-max group-hover/navitem:text-menuItemColor ${
-                              sidebarMinimized && 'mx-auto'
-                            }
-    ${
-      pathname === route.route?.toLocaleLowerCase()
-        ? 'text-[#335f32]'
-        : 'text-menuItemIcon'
-    }`}
-                          />
-                          <span
-                            className={`
-    ${
-      pathname === route.route?.toLocaleLowerCase()
-        ? 'text-[#335f32]'
-        : 'text-menuItemIcon'
-    }`}
-                          >
-                            {route.name}
-                          </span>
-                        </NavLink>
-                      </li>
-                    </>
-                  )}
+                        {route.name}
+                      </span>
+                    </NavLink>
+                  </li>
                 </div>
               </Fragment>
             ))}

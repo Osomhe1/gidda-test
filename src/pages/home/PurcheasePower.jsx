@@ -18,15 +18,15 @@ export default function PurcheasePower() {
   return (
     <div>
       <div id='purchaseOptions' className='p-10 py-8'>
-        <div className='w-[520px] flex flex-col items-center my-4 pr-20'>
-          <h2 className='text-4xl font-bold text-primary capitalize'>
+        <div className='flex flex-col items-start itemscenter my-4 pr-40'>
+          <h2 className='text-2xl lg:text-4xl font-bold text-primary capitalize'>
             Your purchase options
           </h2>
-          <div className=' w-40'>
+          <div className='w-32 lg:w-40 mx-auto md:mx-28'>
             <img
               src='https://giddaa.com/assets/icons/underline.svg'
               alt=''
-              className='w-full h-2'
+              className='w-full'
             />
           </div>
         </div>
@@ -35,7 +35,7 @@ export default function PurcheasePower() {
           So…we give you <br />
           all the options the market has to offer to choose from!
         </p>
-        <div className='grid  space-x12 gap-12 md:grid-cols-2 lg:grid-cols-3  px-14 mt-10'>
+        <div className='grid gap-12 md:grid-cols-2 lg:grid-cols-3  md:px-14 mt-10'>
           <div className='bg-[#F3FAF2] px-8 rounded-[2.5rem] py-8 hover:border-2 border-primary  '>
             <div className='flex py-4 items-center'>
               <img
@@ -282,7 +282,7 @@ export default function PurcheasePower() {
                 </p>
               </div>
             </div>
-            <div className='w-60 md:w-52 lg:w-60 cursor-pointer mt-12 py-2 px-1 bg-white  mx-auto flex items-center justify-center gap-x-3 m rounded-[2.5rem] border-2 border-primary'>
+            <div className='w-60 md:w-52 lg:w-60 cursor-pointer mb-6 md:mb-0 mt-12 py-2 px-1 bg-white  mx-auto flex items-center justify-center gap-x-3 rounded-[2.5rem] border-2 border-primary'>
               <img
                 src='https://giddaa.com/assets/icons/play-small.svg'
                 alt=''
@@ -412,7 +412,7 @@ export default function PurcheasePower() {
                 </p>
               </div>
             </div>
-            <div className='w-60 md:w-52 lg:w-60 cursor-pointer mt-20 py-2 px-1 bg-white  mx-auto flex items-center justify-center gap-x-3 m rounded-[2.5rem] border-2 border-primary'>
+            <div className='w-60 md:w-52 lg:w-60 cursor-pointer mb-6 md:mb-0 mt-20 py-2 px-1 bg-white  mx-auto flex items-center justify-center gap-x-3 rounded-[2.5rem] border-2 border-primary'>
               <img
                 src='https://giddaa.com/assets/icons/play-small.svg'
                 alt=''

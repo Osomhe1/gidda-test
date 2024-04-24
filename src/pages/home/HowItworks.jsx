@@ -1,23 +1,23 @@
 export default function HowItworks() {
   return (
     <div>
-      <div id='howItWorks' className='p-10'>
-        <div className='w-[520px] md:w-[600px] lg:w-[700px] flex flex-col items-center my-6 pr-[21rem]'>
-          <h2 className=' md:text-[2.5rem] lg:text-[3.5rem] font-extrabold text-primary capitalize'>
+      <div id='howItWorks' className='py-10 px-4 lg:px-10 '>
+        <div className=' flex flex-col items-start my-6'>
+          <h2 className='text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] font-bold text-primary capitalize'>
             How it Works
           </h2>
           <img
             src='https://giddaa.com/assets/icons/underline.svg'
             alt=''
-            className='w-48 '
+            className='w-20 lg:w-48'
           />
         </div>
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 mx- gap-20 gap-x-[8%] w-full p-10 px-20'>
+        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-20 gap-x-[8%] w-full'>
           <div
-            className='flex justify-center w-[390px] gap-x-5 h-fit rounded-xl space-y- py- cursor-pointer group'
+            className='flex justify-center gap-x-5 h-fit rounded-xl cursor-pointer group'
             id='1'
           >
-            <span className='group-hover:bg-primary bg-[#F5F5DE] px-2 group-hover:text-white text-primary h-[40px] w-[170px] text-2xl font-bold rounded-xl flex justify-center items-center transition-all'>
+            <span className='group-hover:bg-primary hidden md:flex bg-[#F5F5DE] px-2 group-hover:text-white text-primary h-[40px] w-[170px] text-2xl font-bold rounded-xl justify-center items-center transition-all'>
               1
             </span>
             <div className='group-hover:bg-[#F3FAF2] p-5 rounded-xl transition-all'>
@@ -29,7 +29,7 @@ export default function HowItworks() {
                 You have various options to select from. From completed
                 properties, off-plan properties, and properties in-construction
               </p>
-              <div className='w-52 bg-white h-10 mt-2 mr-auto flex items-center justify-center gap-x-1 m rounded-[2.5rem] border-2 border-primary'>
+              <div className='w-52 bg-white h-10 mt-2 mr-auto flex items-center justify-center gap-x-1 rounded-[2.5rem] border-2 border-primary'>
                 <img
                   src='https://giddaa.com/assets/icons/play-small.svg'
                   alt=''
@@ -42,10 +42,10 @@ export default function HowItworks() {
             </div>
           </div>
           <div
-            className='flex justify-center w-[390px] gap-x-5 h-fit rounded-xl space-y- py- cursor-pointer group'
+            className='flex justify-center gap-x-5 h-fit rounded-xl cursor-pointer group'
             id='2'
           >
-            <span className='group-hover:bg-primary bg-[#F5F5DE] px-2 group-hover:text-white text-primary h-[40px] w-[170px] text-2xl font-bold rounded-xl flex justify-center items-center transition-all'>
+            <span className='group-hover:bg-primary bg-[#F5F5DE] px-2 group-hover:text-white text-primary h-[40px] w-[170px] text-2xl font-bold rounded-xl  hidden md:flex justify-center items-center transition-all'>
               2
             </span>
             <div className='group-hover:bg-[#F3FAF2] p-5 rounded-xl transition-all'>
@@ -58,7 +58,7 @@ export default function HowItworks() {
                 you are able to afford, as long as you put in your correct age
                 and income.
               </p>
-              <div className='w-52 bg-white h-10 mt-2 mr-auto flex items-center justify-center gap-x-1 m rounded-[2.5rem] border-2 border-primary'>
+              <div className='w-52 bg-white h-10 mt-2 mr-auto flex items-center justify-center gap-x-1 rounded-[2.5rem] border-2 border-primary'>
                 <img
                   src='https://giddaa.com/assets/icons/play-small.svg'
                   alt=''
@@ -71,10 +71,10 @@ export default function HowItworks() {
             </div>
           </div>
           <div
-            className='flex justify-center w-[390px] gap-x-5 h-fit rounded-xl space-y- py- cursor-pointer group'
+            className='flex justify-center gap-x-5 h-fit rounded-xl cursor-pointer group'
             id='3'
           >
-            <span className='group-hover:bg-primary bg-[#F5F5DE] px-2 group-hover:text-white text-primary h-[40px] w-[170px] text-2xl font-bold rounded-xl flex justify-center items-center transition-all'>
+            <span className='group-hover:bg-primary bg-[#F5F5DE] px-2 group-hover:text-white text-primary h-[40px] w-[170px] text-2xl font-bold rounded-xl  hidden md:flex justify-center items-center transition-all'>
               3
             </span>
             <div className='group-hover:bg-[#F3FAF2] p-5 rounded-xl transition-all'>
@@ -87,7 +87,7 @@ export default function HowItworks() {
                 use someone you trust, maybe a family member or close friend.
                 Choose a date and time and book your viewing.
               </p>
-              <div className='w-52 bg-white h-10 mt-2 mr-auto flex items-center justify-center gap-x-1 m rounded-[2.5rem] border-2 border-primary'>
+              <div className='w-52 bg-white h-10 mt-2 mr-auto flex items-center justify-center gap-x-1 rounded-[2.5rem] border-2 border-primary'>
                 <img
                   src='https://giddaa.com/assets/icons/play-small.svg'
                   alt=''
@@ -100,10 +100,10 @@ export default function HowItworks() {
             </div>
           </div>
           <div
-            className='flex justify-center w-[390px] gap-x-5 h-fit rounded-xl space-y- py- cursor-pointer group'
+            className='flex justify-center gap-x-5 h-fit rounded-xl cursor-pointer group'
             id='4'
           >
-            <span className='group-hover:bg-primary bg-[#F5F5DE] px-2 group-hover:text-white text-primary h-[40px] w-[170px] text-2xl font-bold rounded-xl flex justify-center items-center transition-all'>
+            <span className='group-hover:bg-primary bg-[#F5F5DE] px-2 group-hover:text-white text-primary h-[40px] w-[170px] text-2xl font-bold rounded-xl  hidden md:flex justify-center items-center transition-all'>
               4
             </span>
             <div className='group-hover:bg-[#F3FAF2] p-5 rounded-xl transition-all'>
@@ -116,7 +116,7 @@ export default function HowItworks() {
                 proceed to submit the document required by the organzation you
                 are applying to.
               </p>
-              <div className='w-52 bg-white h-10 mt-2 mr-auto flex items-center justify-center gap-x-1 m rounded-[2.5rem] border-2 border-primary'>
+              <div className='w-52 bg-white h-10 mt-2 mr-auto flex items-center justify-center gap-x-1 rounded-[2.5rem] border-2 border-primary'>
                 <img
                   src='https://giddaa.com/assets/icons/play-small.svg'
                   alt=''
@@ -129,10 +129,10 @@ export default function HowItworks() {
             </div>
           </div>
           <div
-            className='flex justify-center w-[390px] gap-x-5 h-fit rounded-xl space-y- py- cursor-pointer group'
+            className='flex justify-center gap-x-5 h-fit rounded-xl cursor-pointer group'
             id='5'
           >
-            <span className='group-hover:bg-primary bg-[#F5F5DE] px-2 group-hover:text-white text-primary h-[40px] w-[170px] text-2xl font-bold rounded-xl flex justify-center items-center transition-all'>
+            <span className='group-hover:bg-primary bg-[#F5F5DE] px-2 group-hover:text-white text-primary h-[40px] w-[170px] text-2xl font-bold rounded-xl  hidden md:flex justify-center items-center transition-all'>
               5
             </span>
             <div className='group-hover:bg-[#F3FAF2] p-5 rounded-xl transition-all'>
@@ -144,7 +144,7 @@ export default function HowItworks() {
                 application and the submitted documents. You will be notified if
                 your application is accepted or not.
               </p>
-              <div className='w-52 bg-white h-10 mt-2 mr-auto flex items-center justify-center gap-x-1 m rounded-[2.5rem] border-2 border-primary'>
+              <div className='w-52 bg-white h-10 mt-2 mr-auto flex items-center justify-center gap-x-1 rounded-[2.5rem] border-2 border-primary'>
                 <img
                   src='https://giddaa.com/assets/icons/play-small.svg'
                   alt=''
@@ -157,10 +157,10 @@ export default function HowItworks() {
             </div>
           </div>
           <div
-            className='flex justify-center w-[390px] gap-x-5 h-fit rounded-xl space-y- py- cursor-pointer group'
+            className='flex justify-center gap-x-5 h-fit rounded-xl cursor-pointer group'
             id='6'
           >
-            <span className='group-hover:bg-primary bg-[#F5F5DE] px-2 group-hover:text-white text-primary h-[40px] w-[170px] text-2xl font-bold rounded-xl flex justify-center items-center transition-all'>
+            <span className='group-hover:bg-primary bg-[#F5F5DE] px-2 group-hover:text-white text-primary h-[40px] w-[170px] text-2xl font-bold rounded-xl  hidden md:flex justify-center items-center transition-all'>
               6
             </span>
             <div className='group-hover:bg-[#F3FAF2] p-5 rounded-xl transition-all'>
@@ -174,7 +174,7 @@ export default function HowItworks() {
                 to make payment and create a mandate for repayment, if it is a
                 mortgage or payment plan.
               </p>
-              <div className='w-52 bg-white h-10 mt-2 mr-auto flex items-center justify-center gap-x-1 m rounded-[2.5rem] border-2 border-primary'>
+              <div className='w-52 bg-white h-10 mt-2 mr-auto flex items-center justify-center gap-x-1 rounded-[2.5rem] border-2 border-primary'>
                 <img
                   src='https://giddaa.com/assets/icons/play-small.svg'
                   alt=''

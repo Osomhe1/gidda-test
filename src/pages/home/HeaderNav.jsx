@@ -9,7 +9,7 @@ export default function HeaderNav() {
 
   return (
     <div>
-      <nav className='bg-[#f2f2f2] fixed left-0 top-0 flex justify-center items-center md:gap-[3rem] w-full h-[79px] border-b-0 py-2 md:px-[8rem] z-[90]'>
+      <nav className='bg-[#f2f2f2] px-4 fixed left-0 top-0 flex justify-center items-center md:gap-[3rem] w-full h-[79px] border-b-0 py-2 md:px-[8rem] z-[90]'>
         <div className=' md:flex justify-center items-center'>
           <div className='lg:h-[64px] lg:w-[69px] h-[40px] w-[40px]'>
             <a href='/' className='h-full'>

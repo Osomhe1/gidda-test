@@ -6,7 +6,6 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
-
 export default function WhyGidda() {
   return (
     <div>
@@ -155,14 +154,14 @@ export default function WhyGidda() {
             </SwiperSlide>
           </Swiper>
         </div>
-        <div className='w-[520px] flex flex-col items-center justify-center mt-16 mx-auto'>
+        <div className=' flex flex-col items-start justify-center mt-16 mx-auto'>
           <h3 className='text-4xl font-bold text-primary capitalize'>
             Here's Why!
           </h3>
         </div>
         <div
           id='rightReason'
-          className='grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 p-10 px-16 pr-2'
+          className='grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 px-6 md:p-10 md:px-16 md:pr-2'
         >
           <div
             className='hover:bg-[#F5F5DE] bg-white hover:shadow-lg border hover:border-primary flex flex-col justify-center w-[300px] h-[250px] items-center rounded-[20px] space-y-4 py-5 px-2'

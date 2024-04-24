@@ -15,34 +15,34 @@ export default function Partners() {
       <div className='bg-[#F3FAF2] pb-28'>
         <div
           id='ourProperties'
-          className='grid uppercase md:grid-cols-3 bg-[#F3FAF2] p-5 px-44 py-4 pl-[36px]'
+          className=' uppercase bg-[#F3FAF2] p-5 lg:px-44 py-4 pl[36px] flex w-full justify-between items-center'
         >
-          <div className='flex flex-col items-center pr-[20%]'>
-            <h1 className='font-title text-primary text-6xl'>
+          <div className='flex flex-col gap-2 items-center '>
+            <h1 className='font-bold text-primary text-2xl lg:text-6xl'>
               <span aria-live='polite' aria-busy='true'>
                 <span className='react-loading-skeleton'>‌6</span>
                 <br />
               </span>
             </h1>
-            <p className='text-[12px]'>no of properties</p>
+            <p className='text-[10px] lg:text-[12px]'>no of properties</p>
           </div>
-          <div className='flex flex-col items-center'>
-            <h1 className='font-title text-primary text-6xl'>
+          <div className='flex flex-col gap-2 items-center'>
+            <h1 className='font-bold text-primary text-2xl lg:text-6xl'>
               <span aria-live='polite' aria-busy='true'>
                 <span className='react-loading-skeleton'>‌100</span>
                 <br />
               </span>
             </h1>
-            <p className='text-[12px]'>no of units</p>
+            <p className='text-[10px] lg:text-[12px]'>no of units</p>
           </div>
-          <div className='flex flex-col items-center pl-[10%]'>
-            <h1 className='font-title text-primary text-6xl'>
+          <div className='flex flex-col gap-2 items-center '>
+            <h1 className='font-bold text-primary text-2xl lg:text-6xl'>
               <span aria-live='polite' aria-busy='true'>
                 <span className='react-loading-skeleton'>‌9</span>
                 <br />
               </span>
             </h1>
-            <p className='text-[12px]'>
+            <p className='text-[10px] lg:text-[12px]'>
               PLANS/METHODS YOU CAN PURCHASE YOUR HOME
             </p>
           </div>
@@ -150,7 +150,7 @@ export default function Partners() {
               </SwiperSlide>
             </Swiper>
           </div>
-          <div className='w-64 bg-white shadow-lg h-12 absolute flex origin-bottom -rotate-6 drop-shadow-xl items-center justify-center gap-x-3 ml-[45%] rounded-[2.5rem] border-2 border-[#335f32]'>
+          <div className='w-64 bg-white shadow-lg h-12 absolute flex origin-bottom -rotate-6 drop-shadow-xl items-center justify-center gap-x-3 ml-[30%] md:ml-[45%] rounded-[2.5rem] border-2 border-[#335f32]'>
             <img src={underlinImg2} alt='' className='w-10 h-10' />
             <h1 className='text-primary font-title text-[12px]'>
               If They Trust Us, So Can You
